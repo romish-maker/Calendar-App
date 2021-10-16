@@ -1,11 +1,13 @@
 import React, {FC} from 'react';
+import {AppRootStateType} from '../store/store';
+import {useSelector} from 'react-redux';
 import {Layout, Row, Menu} from 'antd';
 import {useHistory} from 'react-router-dom';
 import { RouteNames } from '../router/routers';
 
 export const Navbar: FC = () => {
     const history = useHistory();
-    const isAuth = false;
+    const isAuth = useSelector<AppRootStateType, boolean>(state => state.authMe.isAuth);
     return (
         <Layout.Header>
             <Row justify="end">

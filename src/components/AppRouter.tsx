@@ -1,9 +1,11 @@
 import React, {FC} from 'react';
+import {useSelector} from 'react-redux';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import { privateRoutes, publicRoutes, RouteNames } from '../router/routers';
+import {AppRootStateType} from '../store/store';
 
 export const AppRouter: FC = () => {
-    const isAuth = false;
+    const isAuth = useSelector<AppRootStateType, boolean>(state => state.authMe.isAuth);
     return (
         isAuth ?
         <Switch>
