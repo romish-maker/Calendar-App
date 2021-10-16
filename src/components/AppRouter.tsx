@@ -12,10 +12,10 @@ export const AppRouter: FC = () => {
                 path={route.path} 
                 exact={route.exact} 
                 component={route.component}
+                key={route.path}
             />
         )}
         <Redirect to={RouteNames.EVENT} />
-
         </Switch>
         :
         <Switch>
